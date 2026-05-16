@@ -1,5 +1,8 @@
 package br.com.serratec.primeirotrabalho.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +13,10 @@ import br.com.serratec.primeirotrabalho.repository.PacienteRepository;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -26,13 +31,30 @@ public class PacienteController {
         return repository.save(paciente);
     }
 
-    @DeleteMapping
-    public void excluir(@PathVariable Long codigo){
-        if (repository.existsById(codigo)) {
-            repository.deleteById(codigo);
-            ResponseEntity.noContent();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> apagar(@PathVariable Long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return ResponseEntity.noContent().build();
         }
-        ResponseEntity.notFound().build();
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Paciente> alterar(@PathVariable Long id, @Valid @RequestBody Paciente paciente) {
+        Optional<Paciente> pacienteOptional = repository.findById(id);
+
+        if (pacienteOptional.isPresent()) {
+            paciente.setCodigo(id);
+            return ResponseEntity.ok(repository.save(paciente));
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping
+    public List<Paciente> listar() {
+        return repository.findAll();
     }
 
 }

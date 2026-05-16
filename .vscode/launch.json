@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-PrimeirotrabalhoApplication<primeirotrabalho>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "br.com.serratec.primeirotrabalho.PrimeirotrabalhoApplication",
+      "projectName": "primeirotrabalho",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
