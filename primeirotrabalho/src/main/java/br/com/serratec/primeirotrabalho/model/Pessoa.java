@@ -13,8 +13,8 @@ import jakarta.validation.constraints.Size;
 public abstract class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    private Long codigo;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long codigo;
 
     @NotBlank(message = "O nome não pode ser nulo ou vazio")
     @Size(max = 60, message = "O nome deve ter no máximo 60 caracteres")
