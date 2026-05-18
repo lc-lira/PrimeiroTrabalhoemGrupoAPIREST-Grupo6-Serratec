@@ -11,7 +11,7 @@ Uma API REST desenvolvida em Spring Boot para o gerenciamento completo de consul
 * 👩‍💻 **Nathália de Queiroz Antunes** — [nathaliaa-qa](https://github.com/nathaliaa-qa)
 * 👨‍💻 **Lucas Lira** — [lc-lira](https://github.com/lc-lira)
 * 👩‍💻 **Gabriela**
-* 👨‍💻 **João Lucas**
+* 👨‍💻 **João Paulo**
 * 👨‍💻 **Pedro Lucas**
 
 ---
