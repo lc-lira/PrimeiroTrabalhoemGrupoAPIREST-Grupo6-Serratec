@@ -57,4 +57,15 @@ public class PacienteController {
         return repository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Paciente> buscarPorId(@PathVariable Long id) {
+    Optional<Paciente> pacienteOptional = repository.findById(id);
+
+    if (pacienteOptional.isPresent()) {
+        return ResponseEntity.ok(pacienteOptional.get());
+    }
+
+    return ResponseEntity.notFound().build();
+    }
+
 }

@@ -63,7 +63,7 @@ public abstract class Pessoa {
         this.email = email;
     }
 
-    public String getTelephone() {
+    public String getTelefone() {
         return telefone;
     }
 
